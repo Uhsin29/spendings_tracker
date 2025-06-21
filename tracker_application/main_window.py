@@ -5,6 +5,7 @@
 from pathlib import Path
 from tkinter import Tk, Frame, Canvas, Entry, Text, Button, PhotoImage
 from income_frame import IncomeFrame
+from expenses_frame import ExpensesFrame
 
 OUTPUT_PATH = Path(__file__).parent
 ASSETS_PATH_FRAME0 = OUTPUT_PATH / "assets" / "frame0"
@@ -20,6 +21,7 @@ class MainWindow(Tk):
         self.title("Expenses Tracker")
         self.main_frame = Frame(self, bg="#2E2E2E")
         self.main_frame.pack(fill="both", expand=True)
+
         # Canvas Setup ------------------------------------------------------------------------
         self.main_canvas = Canvas(
             self.main_frame,
@@ -32,8 +34,6 @@ class MainWindow(Tk):
         )
         self.main_canvas.place(x = 0, y = 0)
 
-
-
         # Header Text -------------------------------------------------------------------------
         self.main_canvas.create_text(
             215.0,
@@ -43,8 +43,6 @@ class MainWindow(Tk):
             fill="#FFFFFF",
             font=("JosefinSans Medium", 35 * -1)
         )
-
-
 
         # Income Components ---------------------------------------------------------------------
         self.bg_income = PhotoImage(
@@ -71,8 +69,6 @@ class MainWindow(Tk):
             fill="#FFFFFF",
             font=("JosefinSans Medium", 35 * -1)
         )
-
-
 
         # Expenses Components -------------------------------------------------------------------
         self.bg_expenses = PhotoImage(
@@ -172,7 +168,7 @@ class MainWindow(Tk):
             image=self.expense_button_image,
             borderwidth=0,
             highlightthickness=0,
-            command=lambda: print("button_1 clicked"),
+            command=self.open_expense_canvas,  # Open gui2.py when clicked),
             relief="flat",
             bg="#2E2E2E",
             activebackground="#2E2E2E"
@@ -203,14 +199,20 @@ class MainWindow(Tk):
 
         # Income Frame Setup -------------------------------------------------------------------
         self.income_frame = IncomeFrame(self, self.return_to_main)  # Create the frame
+        self.expense_frame = ExpensesFrame(self, self.return_to_main)  # Create the expense frame
 
         
     def open_income_canvas(self):
         self.main_frame.pack_forget()
         self.income_frame.pack(fill="both", expand=True)
 
+    def open_expense_canvas(self):
+        self.main_frame.pack_forget()
+        self.expense_frame.pack(fill="both", expand=True)
+
     def return_to_main(self):
         self.income_frame.pack_forget()
+        self.expense_frame.pack_forget()
         self.main_frame.pack(fill="both", expand=True)
         # Update the income balance text
         # main_canvas.itemconfig(income_balance, text="$0.00")  # Example update, replace with actual logic

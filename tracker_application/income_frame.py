@@ -28,126 +28,7 @@ class IncomeFrame(Frame):
         )
         self.canvas.pack(fill="both", expand=True)
 
-        self.entry_image_1 = PhotoImage(
-            file=relative_to_assets_income_frame("entry_1.png"))
-        self.entry_bg_1 = self.canvas.create_image(
-            394.5,
-            463.0,
-            image=self.entry_image_1
-        )
-        self.entry_1 = Entry(
-            self,
-            bd=0,
-            bg="#24A228",
-            fg="#000716",
-            highlightthickness=0
-        )
-        self.entry_1.place(
-            x=78.0,
-            y=440.0,
-            width=633.0,
-            height=44.0
-        )
-
-        self.entry_image_2 = PhotoImage(
-            file=relative_to_assets_income_frame("entry_2.png"))
-        self.entry_bg_2 = self.canvas.create_image(
-            214.5,
-            364.0,
-            image=self.entry_image_2
-        )
-        self.entry_2 = Entry(
-            self,
-            bd=0,
-            bg="#24A228",
-            fg="#000716",
-            highlightthickness=0
-        )
-        self.entry_2.place(
-            x=78.0,
-            y=341.0,
-            width=273.0,
-            height=44.0
-        )
-
-        self.entry_image_3 = PhotoImage(
-            file=relative_to_assets_income_frame("entry_3.png"))
-        self.entry_bg_3 = self.canvas.create_image(
-            196.5,
-            269.0,
-            image=self.entry_image_3
-        )
-        self.entry_3 = Entry(
-            self,
-            bd=0,
-            bg="#24A228",
-            fg="#000716",
-            highlightthickness=0
-        )
-        self.entry_3.place(
-            x=78.0,
-            y=246.0,
-            width=237.0,
-            height=44.0
-        )
-
-        self.entry_image_4 = PhotoImage(
-            file=relative_to_assets_income_frame("entry_4.png"))
-        self.entry_bg_4 = self.canvas.create_image(
-            196.5,
-            174.0,
-            image=self.entry_image_4
-        )
-        self.entry_4 = Entry(
-            self,
-            bd=0,
-            bg="#24A228",
-            fg="#000716",
-            highlightthickness=0
-        )
-        self.entry_4.place(
-            x=78.0,
-            y=151.0,
-            width=237.0,
-            height=44.0
-        )
-
-        self.canvas.create_text(
-            36.0,
-            114.0,
-            anchor="nw",
-            text="Date:",
-            fill="#FFFFFF",
-            font=("JosefinSans Medium", 30 * -1)
-        )
-
-        self.canvas.create_text(
-            39.0,
-            211.0,
-            anchor="nw",
-            text="Category:",
-            fill="#FFFFFF",
-            font=("JosefinSans Medium", 30 * -1)
-        )
-
-        self.canvas.create_text(
-            55.0,
-            401.0,
-            anchor="nw",
-            text="Description",
-            fill="#FFFFFF",
-            font=("JosefinSans Medium", 30 * -1)
-        )
-
-        self.canvas.create_text(
-            33.0,
-            306.0,
-            anchor="nw",
-            text="Amount:",
-            fill="#FFFFFF",
-            font=("JosefinSans Medium", 30 * -1)
-        )
-
+        # Header Text -----------------------------------------------------------------
         self.canvas.create_text(
             248.0,
             36.0,
@@ -156,6 +37,100 @@ class IncomeFrame(Frame):
             fill="#FFFFFF",
             font=("JosefinSans Medium", 50 * -1)
         )
+
+        # Date Components -------------------------------------------------------------
+        self.entry_4 = Entry(
+            self,
+            bd=0,
+            bg="#27732a",
+            fg="#000716",
+            highlightthickness=0
+        )
+        self.entry_4.place(
+            x=60.0,
+            y=140.0,
+            width=300.0,
+            height=50.0
+        )        
+        self.canvas.create_text(
+            60.0,
+            100.0,
+            anchor="nw",
+            text="Date:",
+            fill="#FFFFFF",
+            font=("JosefinSans Medium", 30 * -1)
+        )
+        # Category Components ----------------------------------------------------------
+        self.entry_3 = Entry(
+            self,
+            bd=0,
+            bg="#27732a",
+            fg="#000716",
+            highlightthickness=0
+        )
+        self.entry_3.place(
+            x=60.0,
+            y=240.0,
+            width=300.0,
+            height=50.0
+        )
+        self.canvas.create_text(
+            60.0,
+            200.0,
+            anchor="nw",
+            text="Category:",
+            fill="#FFFFFF",
+            font=("JosefinSans Medium", 30 * -1)
+        )
+
+        # Amount Components --------------------------------------------------------------
+        self.entry_2 = Entry(
+            self,
+            bd=0,
+            bg="#27732a",
+            fg="#000716",
+            highlightthickness=0
+        )
+        self.entry_2.place(
+            x=60.0,
+            y=340.0,
+            width=300.0,
+            height=50.0
+        )
+        self.canvas.create_text(
+            60.0,
+            300.0,
+            anchor="nw",
+            text="Amount:",
+            fill="#FFFFFF",
+            font=("JosefinSans Medium", 30 * -1)
+        )
+
+        # Description Components ----------------------------------------------------------
+        self.entry_1 = Entry(
+            self,
+            bd=0,
+            bg="#27732a",
+            fg="#000716",
+            highlightthickness=0
+        )
+        self.entry_1.place(
+            x=60.0,
+            y=440.0,
+            width=650.0,
+            height=50.0
+        )
+        self.canvas.create_text(
+            60.0,
+            400.0,
+            anchor="nw",
+            text="Description:",
+            fill="#FFFFFF",
+            font=("JosefinSans Medium", 30 * -1)
+        )
+
+
+        
 
         self.image_image_1 = PhotoImage(
             file=relative_to_assets_income_frame("image_1.png"))
@@ -173,7 +148,9 @@ class IncomeFrame(Frame):
             borderwidth=0,
             highlightthickness=0,
             command=lambda: print("button_1 clicked"),
-            relief="flat"
+            relief="flat",
+            bg="#2E2E2E",
+            activebackground="#2E2E2E"
         )
         self.button_1.place(
             x=233.0,
@@ -183,5 +160,19 @@ class IncomeFrame(Frame):
         )
 
         # Back button
-        self.back_button = Button(self, text="Back", command=return_callback)
-        self.back_button.place(x=10, y=10)
+        self.back = PhotoImage(
+            file=relative_to_assets_income_frame("back_button.png"))
+        self.back_button = Button(
+            self,
+            image=self.back,
+            borderwidth=0,
+            highlightthickness=0,
+            command=return_callback,
+            relief="flat",
+            bg="#2E2E2E",
+            activebackground="#2E2E2E"
+        )
+        self.back_button.place(
+            x=30.0,
+            y=30.0,
+        )
